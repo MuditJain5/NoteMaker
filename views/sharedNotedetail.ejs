@@ -1,0 +1,15 @@
+<%- include('./partials/header.ejs'); -%>
+  
+
+<div class="container pt-4">
+
+    <h1 class="mt-4"><%= note.title %></h1>
+    <p class="mb-5">- <%= note.author.username %></p>
+
+    <img class="float-end" width="300" height="300" src="data:image/<%=note.img.contentType%>;base64, <%=note.img.data.toString('base64')%>">
+    <p><%= note.content %></p>
+
+</div>
+
+
+<%- include('./partials/footer.ejs'); -%>

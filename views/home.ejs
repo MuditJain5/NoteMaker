@@ -1,0 +1,21 @@
+<%- include('./partials/header.ejs'); -%>
+
+<h1 class="text-center py-5 mt-5">Welcome to Note Maker</h1>
+
+<div class="text-center mt-5 pt-5">
+    <a href="/addnote"><button class="btn btn-lg btn-primary">New Note</button></a>
+</div>
+
+<% if(currentUser){ %>
+    <div class="d-flex justify-content-around">
+        <div class="text-center mt-5">
+            <a href="/searchnotes"><button class="btn btn-lg btn-danger">Search Notes</button></a>
+        </div>
+        <div class="text-center mt-5">
+            <a href="/notes"><button class="btn btn-lg btn-danger">Go to Notes</button></a>
+        </div>
+    </div>
+    
+<% } %>
+
+<%- include('./partials/footer.ejs'); -%>

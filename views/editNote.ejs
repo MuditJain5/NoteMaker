@@ -1,0 +1,23 @@
+<%- include('./partials/header.ejs'); -%>
+
+<div class="container form">
+    <h1>Edit Note</h1>
+    <form action="/note/<%= note._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input class="form-control" type="text" name="title" placeholder="title" value="<%= note.title %>">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea class="form-control" rows="6" name="content" placeholder="content"><%= note.content %></textarea>
+        </div>
+        <div class="mb-3">
+            <img width="100" height="100" src="data:image/<%=note.img.contentType%>;base64, <%=note.img.data.toString('base64')%>">
+            <!-- <label for="image" class="form-label">Example file input</label> -->
+            <input type="file" class="form-control-file" id="image" name="image" value="">
+        </div>
+        <button class="btn btn-block btn-success" type="submit">Save</button>
+    </form>
+</div>
+
+<%- include('./partials/footer.ejs'); -%>

@@ -1,0 +1,45 @@
+<%- include('./partials/header.ejs'); -%>
+  
+<!-- Modal -->
+<div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="shareModalLabel">Shareable URL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        http://localhost:3000/note/<%= note._id %>/share
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+    </div>
+</div>
+</div>
+
+<div class="container pt-4">
+    <a href="/notes"><i class="fas fa-arrow-left"></i> Back</a>
+
+    <div class="mt-3 d-flex justify-content-end">
+        <button type="button" class="btn btn-secondary me-3" data-bs-toggle="modal" data-bs-target="#shareModal">
+            Share
+        </button>
+            
+        <a type="button" class="btn btn-secondary me-3" href="/note/<%= note._id %>/edit">Edit</a>
+        <form method="POST" action="/note/<%= note._id %>?_method=DELETE">
+            <button type="submit" class="btn btn-secondary me-3">Delete</button>
+        </form>
+
+    </div>
+
+    <h1 class="mt-4"><%= note.title %></h1>
+    <p class="mb-5">- <%= note.author.username %></p>
+
+    <img class="float-end" width="300" height="300" src="data:image/<%=note.img.contentType%>;base64, <%=note.img.data.toString('base64')%>">
+    <p><%= note.content %></p>
+
+</div>
+
+
+<%- include('./partials/footer.ejs'); -%>

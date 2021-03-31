@@ -1,0 +1,37 @@
+<%- include('./partials/header.ejs'); -%>
+
+<h1 class="text-center pt-5 mt-5"> 
+    <span>Notes</span>
+</h1>
+
+<div class="container">
+    <% notes.forEach((note) => { %>
+
+        <% if(note.title.includes(query) || note.content.includes(query)) { %>
+        
+            <div class="bg-white py-4 px-5 m-2">
+                <h3><%= note.title %></h3> 
+                <div class="row">
+                    <div class="col-10">
+                        <p><%= note.content.substring(0, 100) %> ..... </p>
+                    </div>
+                    <!-- <div class="col-6">
+                        <img width="500" height="500" src="data:image/<%=note.img.contentType%>;base64, <%=note.img.data.toString('base64')%>">
+                    </div> -->
+                    <div class="col-2">
+                        <a href="/note/<%= note.id %>"><button class="btn btn-success">Details</button></a>
+                    </div>
+                </div>
+                
+            </div>
+        
+        <% } %>
+
+    <%   }) %>
+</div>
+
+<div class="text-center mt-5">
+    <a href="/"><button class="btn btn-lg btn-danger">Go back</button></a>
+</div>
+
+<%- include('./partials/footer.ejs'); -%>

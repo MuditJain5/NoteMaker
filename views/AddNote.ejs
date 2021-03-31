@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs'); -%>
+
+<div class="container form">
+    <h1>Add Note</h1>
+    <form action="/addnote" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input class="form-control" type="text" name="title" placeholder="title">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea class="form-control" rows="6" name="content" placeholder="content"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control-file" id="image" name="image" value="" required>
+        </div>
+        <button class="btn btn-block btn-success" type="submit">Submit</button>
+    </form>
+</div>
+
+<%- include('./partials/footer.ejs'); -%>
